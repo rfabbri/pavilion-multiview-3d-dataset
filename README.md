@@ -4,6 +4,13 @@ This is a realistic professional-grade high-quality archviz dataset with full 3D
 truth, including curve and hard edge ground truth, control over illumination and
 ground truth camera models for a video sequence.
 
+The ground truth curves were manually marked, and are represented as dense
+samples traced on the original meshes, together with local connectivity
+information (ie, which points are linked to the other). Note that global
+orientation for the curves is not available. Think of the 3D ground-truth curves
+as an unordered graph. After all, they are subsets of a mesh which also doesn't
+have global orientation information.
+
 
 ## Files
 
@@ -43,15 +50,25 @@ cameras/   3x4 cameras for each video frame, in text format
 
 3d/src/parse_collada.sce   code to parse the .da XML files and produce global 3D points.
 
-3d/cropped/*txt   all points in txt format for the cropped scene
+3d/cropped/{gt-points.txt,gt-edges.txt}  all points and local connectivity
+  information for the marked curves, in txt format for the cropped scene. For
+  the full scene, you have to generate these .txt files yourself from the .dae,
+  see below for more information.
+
+  gt-points.txt   x y z coordinates for sample points, one point per line.
+                  lets call this the 'allpts' nx3 array
+
+  gt-edges.txt    indices of points that are connected by a vertex.
+                  The txt file seems to have floats, but they are ints.
+                  Connect a 3D point if allpts( alledg(i-1:i) , :).
+                  See the end of parse_collada.sce for an example of how to
+                  plot the ground truth in scilab/matlab.
 
 3d/camera-path
 
-3d/curves.txt
-
 ```
 
-## Using the .dae Collada file
+## Getting 3D points and edge info using the .dae Collada file
 
 To get 3D points and connectivitiy information, use the Scilab.org script
 src/parse_collada.sce (matlab is similar, but just download the free Scilab and

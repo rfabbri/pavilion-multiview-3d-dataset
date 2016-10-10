@@ -1,6 +1,6 @@
 # Barcelona Pavilion Multiview Dataset
 
-This is a realistic professional-grade synthetic dataset with full 3D ground
+This is a realistic professional-grade high-quality archviz dataset with full 3D ground
 truth, including curve and hard edge ground truth, control over illumination and
 ground truth camera models for a video sequence.
 
@@ -8,25 +8,28 @@ ground truth camera models for a video sequence.
 ## Files
 
 ```
-images/{midday,night,sunset} 100 640x360 video frames for each illumination condition
+images/{midday,night,sunset}   100 640x360 video frames for each illumination condition
 
-cameras/ 3x4 cameras for each video frame, in text format
+cameras/   3x4 cameras for each video frame, in text format
 
-3d/ blender.org files with the full 3D ground truth
+3d/   blender.org files with the full 3D ground truth
 
-3d/pavillon_barcelone_v1.2-full_mesh_for_PLY_export-ungrouped-all_modifiers-joined-001.ply.bz2
-  This is a full joined mesh PLY file to be opened in Meshlab, etc. No semantic info,
-  as all objects were joined into one prior to export. Useful for computing
-  ground truth error, etc. The mesh is huge, make sure to have a very powerful
-  computer.
+3d/original   the original professional files with editable 3D objects and
+  render settings. Open 3d/original/3d/pavillon_barcelone_v1.2.blend in Blender.
 
 3d/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.dae
   .dae (collada) XML with the objects
   
 pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.blend
   Corresponding .blend file with the 3D curves browseable in Blender
-  
 
+pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010-overlay.blend
+  
+3d/pavillon_barcelone_v1.2-full_mesh_for_PLY_export-ungrouped-all_modifiers-joined-001.ply.bz2
+  This is a full joined dense mesh PLY file to be opened in Meshlab, etc. No
+  semantic info, as all objects were joined in Blender into one prior to export.
+  Useful for computing ground truth error, etc. The mesh is huge, make sure to
+  have a very powerful computer.
 ```
 
 ## Using the .dae Collada file
@@ -86,7 +89,6 @@ p = R*scale*po + loc*ones(1,size(po,2))
 % Then you can project p using the 3x4 P matrix from *.projmatrix as usual.
 ```
 
-
 ## Generating your own video sequence with camera ground truth
 
 You can generate another video sequence or re-render at higher resolution to
@@ -103,8 +105,23 @@ Dataset produced and tested with Blender 2.76 on Mac OSX and Linux.
 [Ricardo Fabbri](http://rfabbri.github.io) built the dataset.
 Further authors include Anil Usumezbas and Benjamin Kimia.
 
+# Credits
+
+This dataset was built on top of E-Mirage studios's dataset downloaded from
+https://www.blender.org/download/demo-files/, for which the unmodified version
+is distributed under the 3d/original folder.
+
 ## Links
 
 Images and explanations of this ground truth are provided in:
-
 Multiview-3d-Drawing.sf.net
+
+More Blender demo files that can serve as ground truth
+https://www.blender.org/download/demo-files/
+
+E-Mirage Studios
+Ric Fabbri's posts on how to convert to/from Blender cameras to standard 3x4
+format for your own projects with blender
+
+http://blender.stackexchange.com/questions/38009/3x4-camera-matrix-from-blender-camera
+http://blender.stackexchange.com/questions/40650/blender-camera-from-3x4-matrix

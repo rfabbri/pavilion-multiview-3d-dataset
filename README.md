@@ -2,7 +2,7 @@
 
 This is a realistic professional-grade high-quality archviz dataset with full 3D ground
 truth, including curve and hard edge ground truth, control over illumination and
-ground truth camera models for a video sequence.
+ground truth camera models for three video sequences under different conditions.
 
 The ground truth curves were manually marked, and are represented as dense
 samples traced on the original meshes, together with local connectivity
@@ -68,9 +68,6 @@ cameras/   3x4 cameras for each video frame, in text format
                   Connect a 3D point if allpts( alledg(i-1:i) , :).
                   See the end of parse_collada.sce for an example of how to
                   plot the ground truth in scilab/matlab.
-
-3d/camera-path
-
 ```
 
 ## Getting 3D points and edge info using the .dae Collada file

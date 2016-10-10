@@ -166,8 +166,20 @@ helped.. unsure)
 ## Generating your own video sequence with camera ground truth
 
 You can generate another video sequence or re-render at higher resolution to
-generate your own ground truth. Ask [Ric Fabbri](http://rfabbri.github.io).
-Beware! Rendering these videos can take several days.
+generate your own ground truth.   Beware! Rendering these videos can take
+*several* days. Use multple threads, use your GPU if it has more than 2GB memory
+and you can also set up a blender render farm for distributed rendering in a
+network. This is all basically required in case you need higher resolution
+videos.
+
+Open the file 3d/full/pavillon_barcelone_*-cam-baked-*.blend (stars mean widlcard)
+in Blender. Then, to the right there will be a pane box with multiple tabs with
+icons. Click on the tab with the camera icon. Then under "Dimensions" set your
+render resolution (50% was used for the chair sequence). Under "Performance",
+tune the number of threads, play with the tile size. Then under "Render", click
+the Animation button. It will render the entire video.
+
+Ask [Ric Fabbri](http://rfabbri.github.io) for further details.
 
 
 ## Version

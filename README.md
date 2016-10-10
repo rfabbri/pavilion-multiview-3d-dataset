@@ -17,19 +17,35 @@ cameras/   3x4 cameras for each video frame, in text format
 3d/original   the original professional files with editable 3D objects and
   render settings. Open 3d/original/3d/pavillon_barcelone_v1.2.blend in Blender.
 
-3d/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.dae
-  .dae (collada) XML with the objects
-  
-pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.blend
-  Corresponding .blend file with the 3D curves browseable in Blender
+3d/full/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.blend
+  .blend file with the 3D curves browseable in Blender
 
-pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010-overlay.blend
+3d/full/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010.dae
+  .dae (collada) XML with the curve objects (points/edges) corresponding to the
+  above .blend. You can open the .blend file in Blender, right-click a curve to
+  get its name (shown in the top right, eg. Cube.030), then search this XML file
+  for the object.
   
-3d/pavillon_barcelone_v1.2-full_mesh_for_PLY_export-ungrouped-all_modifiers-joined-001.ply.bz2
-  This is a full joined dense mesh PLY file to be opened in Meshlab, etc. No
+3d/full/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-010-overlay.blend
+  the ground truth curves overlayed on top of the original 3D models, for checking
+  
+3d/full/pavillon_barcelone_v1.2-full_mesh_for_PLY_export-ungrouped-all_modifiers-joined-001.ply.bz2
+  scene in one full (huge) dense mesh PLY file to be opened in Meshlab, etc. No
   semantic info, as all objects were joined in Blender into one prior to export.
-  Useful for computing ground truth error, etc. The mesh is huge, make sure to
-  have a very powerful computer.
+  Useful for computing ground truth error. The mesh is huge, make sure to have a
+  very powerful computer.
+
+3d/camera-path
+
+3d/curves.txt
+
+3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-no_edges-010-002.blend
+  cropped version of the scene curves in near a bounding box, to reduce compute load
+
+3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-010-002.blend
+  open in blender to see a depiction of the bounding box used to generate the cropped vesion above
+
+3d/cropped/*txt   all points in txt format for the cropped scene
 ```
 
 ## Using the .dae Collada file
@@ -108,7 +124,7 @@ Further authors include Anil Usumezbas and Benjamin Kimia.
 # Credits
 
 This dataset was built on top of E-Mirage studios's dataset downloaded from
-https://www.blender.org/download/demo-files/, for which the unmodified version
+https://www.blender.org/download/demo-files, for which the unmodified version
 is distributed under the 3d/original folder.
 
 ## Links

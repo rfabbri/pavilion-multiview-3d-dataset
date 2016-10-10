@@ -35,24 +35,47 @@ cameras/   3x4 cameras for each video frame, in text format
   Useful for computing ground truth error. The mesh is huge, make sure to have a
   very powerful computer.
 
-3d/camera-path
-
-3d/curves.txt
-
 3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-no_edges-010-002.blend
   cropped version of the scene curves in near a bounding box, to reduce compute load
 
 3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-010-002.blend
   open in blender to see a depiction of the bounding box used to generate the cropped vesion above
 
+3d/src/parse_collada.sce   code to parse the .da XML files and produce global 3D points.
+
 3d/cropped/*txt   all points in txt format for the cropped scene
+
+3d/camera-path
+
+3d/curves.txt
+
 ```
 
 ## Using the .dae Collada file
 
-When using the XML .dae COLLADA file, you will have to transform from object
-coordinates to world coordinates prior to using the cameras. The code below
-provides instructions on how to do this transform in Matlab/Scilab:
+To get 3D points and connectivitiy information, use the Scilab.org script
+src/parse_collada.sce (matlab is similar, but just download the free Scilab and
+run this script once).
+
+First edit parse_collada.sce and put the name of the .dae file in the "d"
+variable. Then open scilab and type "exec path/to/parse_collada.sce", adjusting the
+path acoordingly.
+
+The script will output two ASCII files with the curve information:
+  /tmp/gt-points.txt  x y z coordinates for sample points, one point per line.
+                      lets call this the 'allpts' nx3 array
+  /tmp/gt-edges.txt   indices of points that are connected by a vertex.
+                      The txt file seems to have floats, but they are ints.
+                      Connect a 3D point if allpts( alledg(i-1:i) , :).
+                      See the end of parse_collada.sce for an example of how to
+                      plot the ground truth in scilab/matlab.
+
+We provide these files for the cropped version of the dataset only, but you can
+easily generate them for the full dataset.
+
+When using the XML .dae COLLADA file in a custom way, you will have to transform
+from object coordinates to world coordinates prior to using the cameras. 
+The code below illustrates how to do this transform in Matlab/Scilab:
 
 ```matlab
 %------------------------
@@ -107,6 +130,7 @@ p = R*scale*po + loc*ones(1,size(po,2))
 
 ## Generating the PLY of the scene as one huge mesh
 
+* open the original .blend
 * select the objects you don't want to clutter the scene and delete them: trees,
   cameras and lights (right mouse button to select -> x -> delete)
 * select all objects

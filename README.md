@@ -105,6 +105,18 @@ p = R*scale*po + loc*ones(1,size(po,2))
 % Then you can project p using the 3x4 P matrix from *.projmatrix as usual.
 ```
 
+## Generating the PLY of the scene as one huge mesh
+
+* select the objects you don't want to clutter the scene and delete them: trees,
+  cameras and lights (right mouse button to select -> x -> delete)
+* select all objects
+* unlink all groups to make the meshes direct: Ctrl-Shift-A 
+* select all objects
+* apply all modifyers: Alt-C
+* join all meshes into one: Ctrl-J (for some reason pressing f first
+helped.. unsure)
+* export PLY
+
 ## Generating your own video sequence with camera ground truth
 
 You can generate another video sequence or re-render at higher resolution to

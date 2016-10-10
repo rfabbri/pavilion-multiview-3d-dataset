@@ -42,6 +42,11 @@ cameras/   3x4 cameras for each video frame, in text format
   Useful for computing ground truth error. The mesh is huge, make sure to have a
   very powerful computer.
 
+3d/full/pavillon_barcelone_v1.2-cam-baked-007.blend
+  The file used to render the chair scenes. Open the file in blender and click
+  on the timeline to see the video preview on the top-right window. To see the
+  camera path, change the scene to sunset.
+
 3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-no_edges-010-002.blend
   cropped version of the scene curves in near a bounding box, to reduce compute load
 

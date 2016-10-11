@@ -74,7 +74,8 @@ cameras/   3x4 cameras for each video frame, in text format
 
 To get 3D points and connectivitiy information, use the Scilab.org script
 src/parse_collada.sce (matlab is similar, but just download the free Scilab and
-run this script once).
+run this script once).  We provide these for the cropped version of the
+dataset only, but you can easily generate them for the full dataset.
 
 First edit parse_collada.sce and put the name of the .dae file in the "d"
 variable. Then open scilab and type "exec path/to/parse_collada.sce", adjusting the
@@ -88,9 +89,6 @@ The script will output two ASCII files with the curve information:
                       Connect a 3D point if allpts( alledg(i-1:i) , :).
                       See the end of parse_collada.sce for an example of how to
                       plot the ground truth in scilab/matlab.
-
-We provide these files for the cropped version of the dataset only, but you can
-easily generate them for the full dataset.
 
 When using the XML .dae COLLADA file in a custom way, you will have to transform
 from object coordinates to world coordinates prior to using the cameras. 

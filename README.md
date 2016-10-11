@@ -189,7 +189,7 @@ Dataset produced and tested with Blender 2.76 on Mac OSX and Linux.
 [Ricardo Fabbri](http://rfabbri.github.io) built the dataset.
 Further authors include Anil Usumezbas and Benjamin Kimia.
 
-# Citing the dataset
+## Citing the dataset
 
 Please cite the dataset as
 
@@ -215,7 +215,7 @@ Please cite the dataset as
 }
 ```
 
-# Credits
+## Credits
 
 This dataset was built on top of E-Mirage studios's dataset downloaded from
 https://www.blender.org/download/demo-files, for which the unmodified version

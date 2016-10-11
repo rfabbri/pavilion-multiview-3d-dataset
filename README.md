@@ -194,9 +194,6 @@ is distributed under the 3d/original folder.
 
 ## Links
 
-Images and explanations of this ground truth are provided in:
-Multiview-3d-Drawing.sf.net
-
 More Blender demo files that can serve as ground truth www.blender.org/download/demo-files
 
 E-Mirage Studios designer Hamza Cheggour www.emirage.org 
@@ -206,3 +203,9 @@ Ric Fabbri's posts on how to convert to/from Blender cameras to standard 3x4
 format for your own projects with blender:
 * http://blender.stackexchange.com/questions/38009/3x4-camera-matrix-from-blender-camera
 * http://blender.stackexchange.com/questions/40650/blender-camera-from-3x4-matrix
+
+<big>
+Images and explanations of this ground truth are provided in:
+http://Multiview-3d-Drawing.sf.net
+</big>
+

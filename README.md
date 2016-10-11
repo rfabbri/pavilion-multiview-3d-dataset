@@ -8,7 +8,7 @@ The ground truth curves were manually marked, and are represented as dense
 samples traced on the original meshes, together with local connectivity
 information (ie, which points are linked to the other). Note that global
 orientation for the curves is not available. Think of the 3D ground-truth curves
-as an unordered graph. After all, they are subsets of a mesh which also doesn't
+as an undirected graph. After all, they are subsets of a mesh which also doesn't
 have global orientation information.
 
 

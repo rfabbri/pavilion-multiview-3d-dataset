@@ -4,12 +4,15 @@ This is a realistic professional-grade high-quality archviz dataset with full 3D
 truth, including curve and hard edge ground truth, control over illumination and
 ground truth camera models for three video sequences under different conditions.
 
+Images and explanations of this ground truth are provided in:
+http://Multiview-3d-Drawing.sf.net
+
 The ground truth curves were manually marked, and are represented as dense
 samples traced on the original meshes, together with local connectivity
 information (ie, which points are linked to the other). Note that global
 orientation for the curves is not available. Think of the 3D ground-truth curves
 as an undirected graph. After all, they are subsets of a mesh which also doesn't
-have global orientation information.
+have global orientation or global connectivity information.
 
 
 ## Files
@@ -186,6 +189,32 @@ Dataset produced and tested with Blender 2.76 on Mac OSX and Linux.
 [Ricardo Fabbri](http://rfabbri.github.io) built the dataset.
 Further authors include Anil Usumezbas and Benjamin Kimia.
 
+# Citing the dataset
+
+Please cite the dataset as
+
+```bibtex
+@inproceedings{Usumezbas:Fabbri:Kimia:ECCV16,
+    Author         = {Anil Usumezbas and Ricardo Fabbri and Benjamin B. Kimia},
+    Booktitle      = {Proceedings of the European Conference on Computer Vision},
+    Crossref       = {ECCV2016},
+    Title          = {From multiview image curves to {3D} drawings},
+    Year           = {2016}
+}
+
+@proceedings{ECCV2016,
+  title     = {Computer Vision - ECCV 2016, 14th European Conference on
+               Computer Vision, Amsterdam, Netherlands, October 8-16,
+               2016, Proceedings},
+  booktitle = {14th European Conference on
+               Computer Vision, Amsterdam, Netherlands, October 8-16,
+               2016},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  year      = {2016}
+}
+```
+
 # Credits
 
 This dataset was built on top of E-Mirage studios's dataset downloaded from
@@ -204,8 +233,6 @@ format for your own projects with blender:
 * http://blender.stackexchange.com/questions/38009/3x4-camera-matrix-from-blender-camera
 * http://blender.stackexchange.com/questions/40650/blender-camera-from-3x4-matrix
 
-<big>
 Images and explanations of this ground truth are provided in:
 http://Multiview-3d-Drawing.sf.net
-</big>
 

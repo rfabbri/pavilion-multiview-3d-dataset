@@ -3,7 +3,7 @@
 #
 # For instance, open the project
 #
-# /Users/rfabbri/3d-curve-drawing/ground-truth/models/pabellon_barcelona_v1/pavillon_barcelone_v1.2-cam-002.blend
+# ground-truth-pavillion/3d/full/pavillon_barcelone_v1.2-cam-baked-007.blend
 #
 # Then select the desired animated camera and set as active camera
 #
@@ -12,7 +12,7 @@
 #
 # Run with:
 #
-# filename = "/Users/rfabbri/cprg/vxlprg/lemsvxl/contrib/rfabbri/mw/scripts/blender_cameras.py"
+# filename = "/home/rfabbri/lib/data/ground-truth-pavillion/src/blender_cameras.py"
 # exec(compile(open(filename).read(), filename, 'exec'))
 import bpy_extras
 import numpy
@@ -607,24 +607,19 @@ def test2():
 
 
 if __name__ == "__main__":
-#   set_frame(1)
+   set_frame(1)
 #   test()
-   test2()
+#   test2()
 
+   pm = get_cam()
 
-
-#    pm = get_cam()
-
-#   for i in range(1,101):
-#       # Extrinsic transform matrix
-#       pm = get_cam()
-#       nP = numpy.matrix(pm)
-#       fname = "/tmp/%03d.projmatrix" %  i
-#       print("writing " + fname)
-#       numpy.savetxt(fname, nP)  # to select precision, use e.g. fmt='%.2f'
-#       # Advance animation frame
-#       test()
-#       next_frame()
-
-
-
+   for i in range(1,101):
+       # Extrinsic transform matrix
+       pm = get_cam()
+       nP = numpy.matrix(pm)
+       fname = "/tmp/%03d.projmatrix" %  i
+       print("writing " + fname)
+       numpy.savetxt(fname, nP)  # to select precision, use e.g. fmt='%.2f'
+       # Advance animation frame
+       # test()
+       next_frame()

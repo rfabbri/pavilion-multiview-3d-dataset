@@ -65,7 +65,6 @@ cameras/   3x4 cameras for each video frame, in text format
 
   gt-points.txt   x y z coordinates for sample points, one point per line.
                   lets call this the 'allpts' nx3 array
-
   gt-edges.txt    indices of points that are connected by a vertex.
                   The txt file seems to have floats, but they are ints.
                   Connect a 3D point if allpts( alledg(i-1:i) , :).
@@ -183,10 +182,14 @@ Watch this video: [Blender Camera Tips - Pull focus and smooth camera motion](ht
 
 ### Obtaining the camera matrices from your new animation
 
-1. Bake the animation. Select the camera, hit Spacebar and type “Bake
-   Action”. Click Bake Action and click OK on the dialogue that appears.
-   You should see your camera motion explicitly sampled for each frame,
-   and decoupled (de-constrained) from the path you drew.
+1. Bake the animation. Select the camera, hit Spacebar and type “Bake Action”.
+   Click Bake Action, select Visual Keying, Only Selected, Clear Parents and
+   Overwrite Current Action, and click OK on the dialogue that appears.  You
+   should see your camera motion explicitly sampled for each frame, and
+   decoupled (de-constrained) from the path you drew.  When you look at
+   "Transform" for the camera, the numbers should explicitly change as you move
+   the timeline. Double check that playing the animation through the camera
+   viewport is the same as before baking.
 2. Output the cameras
 
 Ask [Ric Fabbri](http://rfabbri.github.io) for further details.

@@ -18,9 +18,17 @@ have global orientation or global connectivity information.
 ## Files
 
 ```
-images/{midday,night,sunset}   100 640x360 video frames for each illumination condition
+chair-sequence/   videos and cameras for 360 fly-by near chairs
 
-cameras/   3x4 cameras for each video frame, in text format
+chair-sequence/images/{midday,night,sunset}   100 640x360 video frames for each illumination condition
+
+chair-sequence/cameras/   3x4 cameras for each video frame, in text format
+
+outer-sequence/    videos and cameras for 360 fly-by around the house, aiming at chairs
+
+outer-sequence/images/{midday,night,sunset}   100 640x360 video frames for each illumination condition
+
+outer-sequence/cameras/   3x4 cameras for each video frame, in text format
 
 3d/   blender.org files with the full 3D ground truth
 
@@ -46,9 +54,24 @@ cameras/   3x4 cameras for each video frame, in text format
   very powerful computer.
 
 3d/full/pavillon_barcelone_v1.2-cam-baked-007.blend
-  The file used to render the chair scenes. Open the file in blender and click
+  The file used to render the chair sequences. Open the file in blender and click
   on the timeline to see the video preview on the top-right window. To see the
   camera path, change the scene to sunset.
+
+3d/full/pavillon_barcelone_v1.2-cam-007.blend
+  The file with a modifiable (unbaked) camera path, for tweaking the chair
+  sequences. You can scale, translate and edit the existing path spline to
+  create other ones.
+
+3d/full/pavillon_barcelone_v1.2-cam-008-outer_sequence-baked.blend
+  The file used to render the outer sequences. Open the file in blender and click
+  on the timeline to see the video preview on the top-right window. To see the
+  camera path, change the scene to sunset.
+
+3d/full/pavillon_barcelone_v1.2-cam-008-outer_sequence.blend
+  The file with a modifiable (unbaked) camera path, for tweaking the outer
+  sequences. You can just scale, translate and edit the existing path spline to
+  create other ones.
 
 3d/cropped/pavillon_barcelone_v1.2-ungrouped02-separate_datablocks-no_modifiers-fixed-bounding_box-no_edges-010-002.blend
   cropped version of the scene curves in near a bounding box, to reduce compute load

@@ -171,7 +171,7 @@ videos.
 
 Open the file `3d/full/pavillon_barcelone_*-cam-baked-*.blend` (stars mean widlcard)
 in Blender. Then, to the right there will be a pane box with multiple tabs with
-icons. Click on the tab with the camera icon. Then under "Dimensions" set your
+icons. Click on the first tab with the camera icon. Then under "Dimensions" set your
 render resolution (50% was used for the chair sequence). Under "Performance",
 tune the number of threads, play with the tile size. Then under "Render", click
 the Animation button. It will render the entire video.
@@ -190,7 +190,9 @@ Watch this video: [Blender Camera Tips - Pull focus and smooth camera motion](ht
    "Transform" for the camera, the numbers should explicitly change as you move
    the timeline. Double check that playing the animation through the camera
    viewport is the same as before baking.
-2. Output the cameras
+2. Output the cameras. First, tweak the script `src/blender_cameras.py` by
+   reading the instructions therein. Basically, select the camera, adjust the
+   name of the script, and exec it inside a blender python console.
 
 Ask [Ric Fabbri](http://rfabbri.github.io) for further details.
 

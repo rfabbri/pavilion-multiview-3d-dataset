@@ -14,6 +14,17 @@ orientation for the curves is not available. Think of the 3D ground-truth curves
 as an undirected graph. After all, they are subsets of a mesh which also doesn't
 have global orientation or global connectivity information.
 
+## Download
+[Git LFS](https://git-lfs.github.com) (Large File Storage) is *required* for
+downloading and uploading from/to this dataset repository.  Otherwise, you will
+get tiny text files instead of actual big files.
+
+Install [Git LFS](https://git-lfs.github.com) and then, after cloning the
+repository, run
+```
+  git lfs pull
+```
+Thanks to Irina Nurutdinova, TU Berlin, for testing this out.
 
 ## Files
 

@@ -1,5 +1,6 @@
 # Generate ground truth data from ground truth blender file
-# Blender 2.76-2.78 version
+# Blender 2.90.1 version (this is not the original version used to generate the
+# data, but generates the same, to good precision)
 #
 # For instance, open the project
 #
@@ -12,7 +13,7 @@
 #
 # Run with:
 #
-# filename = "/home/rfabbri/lib/data/ground-truth-pavillion/src/blender_cameras.py"
+# filename='/Users/rfabbri/lib/data/pavilion-multiview-3d-dataset/src/blender_cameras_2_9.py'
 # exec(compile(open(filename).read(), filename, 'exec'))
 import bpy_extras
 import numpy
@@ -91,11 +92,11 @@ def get_3x4_RT_matrix_from_blender(cam):
     R_world2bcam = rotation.to_matrix().transposed()
 
     # Convert camera location to translation vector used in coordinate changes
-    T_world2bcam = -1*R_world2bcam * location
+    T_world2bcam = -1*R_world2bcam @ location
 
     # Build the coordinate transform matrix from world to computer vision camera
-    R_world2cv = R_bcam2cv*R_world2bcam
-    T_world2cv = R_bcam2cv*T_world2bcam
+    R_world2cv = R_bcam2cv@R_world2bcam
+    T_world2cv = R_bcam2cv@T_world2bcam
 
     # put into 3x4 matrix
     RT = Matrix((
@@ -140,7 +141,7 @@ def get_3x4_RT_matrix_from_blender_without_matrix_world(cam):
 def get_3x4_P_matrix_from_blender(cam):
     K = get_calibration_matrix_K_from_blender(cam.data)
     RT = get_3x4_RT_matrix_from_blender(cam)
-    return K*RT, K, RT
+    return K@RT, K, RT
 
 # def qr( self, ROnly=0 ):
 #     'QR decomposition using Householder reflections: Q*R==self, Q.tr()*Q==I(n), R upper triangular'

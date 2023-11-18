@@ -234,6 +234,10 @@ Ask [Ric Fabbri](http://rfabbri.github.io) for further details.
 ## Version
 
 Dataset produced and tested with Blender 2.76 on Mac OSX and Linux.
+Some versions of the camera and depth scripts are provided that also work with
+Blender 2.9.  We recommend you use these specific Blender versions downloadable
+from the Blender website since they were meticulously tested and will work out
+of the box.
 
 ## Authors
 

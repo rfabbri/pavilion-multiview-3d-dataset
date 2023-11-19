@@ -32,6 +32,9 @@
 ### https://blender.stackexchange.com/questions/52328/render-depth-maps-with-world-space-z-distance-with-respect-the-camera
 ###########
 
+# If you want to debug or manipulate this, 
+# The nodes that are setup are visibile in the Compositor.
+# In RenderLayers, select the renderlayer below
 
 
 #
@@ -514,19 +517,23 @@ def mkdepth():
     context = bpy.context
     scene = bpy.context.scene
     render = bpy.context.scene.render
+    
     render.image_settings.color_mode = 'RGBA' # ('RGB', 'RGBA', ...)
     render.image_settings.color_depth = '16' # ('8', '16')
     render.image_settings.file_format = 'PNG' # ('PNG', 'OPEN_EXR', 'JPEG, ...)
-    # render.film_transparent = True
+    render.resolution_percentage = 5
+
     scene.use_nodes = True
-    depth_scale = 1    # adjust this for PNG
-    scene.view_layers["RenderLayer.001"].use_pass_normal = True
-    scene.view_layers["RenderLayer.001"].use_pass_diffuse_color = True
-    scene.view_layers["RenderLayer.001"].use_pass_object_index = True
-    scene.view_layers["RenderLayer.001"].use_pass_z = True
+    depth_scale = 0.05    # adjust this for PNG
+    scene.view_layers["RenderLayer"].use_pass_normal = True
+    scene.view_layers["RenderLayer"].use_pass_diffuse_color = True
+    scene.view_layers["RenderLayer"].use_pass_object_index = True
+    scene.view_layers["RenderLayer"].use_pass_z = True
+
     nodes = bpy.context.scene.node_tree.nodes
     links = bpy.context.scene.node_tree.links
-    # Clear default nodes
+
+    # Clear previous nodes
     for n in nodes:
         nodes.remove(n)
 
@@ -553,7 +560,7 @@ def mkdepth():
         map.use_min = True
         map.min = [0]
 
-        # links.new(render_layers.outputs['Depth'], map.inputs[0])
+        links.new(render_layers.outputs['Depth'], map.inputs[0])
         links.new(map.outputs[0], depth_file_output.inputs[0])
     # Create normal output nodes
     scale_node = nodes.new(type="CompositorNodeMixRGB")
@@ -757,6 +764,8 @@ if __name__ == "__main__":
 
         bpy.ops.render.render(write_still=True)  # render still
 
-       # Advance animation frame
-       # test()
-#       next_frame()
+        # Advance animation frame
+        # test()
+        #       next_frame()
+        # For debugging the workflow
+    bpy.ops.wm.save_as_mainfile(filepath='debug.blend')
